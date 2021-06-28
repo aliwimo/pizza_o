@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DrinksController;
 use App\Http\Controllers\IngredientsController;
 use App\Http\Controllers\PizzasController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/ingredient', IngredientsController::class);
+Route::resource('/drinks', DrinksController::class);
 Route::get("/pizza", [PizzasController::class, "index"])->name("pizza_make");
 Route::get("/pizza/list", [PizzasController::class, "list"])->name("pizza_list");
 Route::post("/pizza", [PizzasController::class, "store"])->name("pizza_store");
