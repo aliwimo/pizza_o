@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\IngredientsController;
+use App\Http\Controllers\PizzasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/ingredient', IngredientController::class);
+Route::resource('/ingredient', IngredientsController::class);
+Route::get("/pizza", [PizzasController::class, "index"])->name("pizza_make");
+Route::get("/pizza/list", [PizzasController::class, "list"])->name("pizza_list");
+Route::post("/pizza", [PizzasController::class, "store"])->name("pizza_store");

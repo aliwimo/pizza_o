@@ -12,7 +12,10 @@
                     <a class="nav-link" href="/ingredient">Ingredients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/cars/create">Create</a>
+                    <a class="nav-link" href="{{route('pizza_make')}}">Create Pizza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('pizza_list')}}">List Pizza</a>
                 </li>
             </ul>
         </div>

@@ -28,14 +28,6 @@
                             <a href="/ingredient/{{ $ingredient->id }}/edit" class="btn btn-sm btn-secondary">Edit</a>
                             <input type="submit" class="btn btn-sm btn-danger" value="Delete">
                         </form>
-                        {{-- <form class="btn-group btn-group-sm" role="group" action="cars/{{ $car->id }}"
-                        method="POST">
-                        <a href="car_model/create/{{$car->id}}" type="button" class="btn btn-secondary">add</a>
-                        <a href="cars/{{ $car->id }}/edit" type="button" class="btn btn-secondary">edit</a>
-                        @csrf
-                        @method("DELETE")
-                        <input type="submit" class="btn btn-danger" value="delete">
-                        </form> --}}
                     </td>
                 </tr>
 
