@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DrinkOrdersController;
 use App\Http\Controllers\DrinksController;
 use App\Http\Controllers\IngredientsController;
 use App\Http\Controllers\PizzasController;
@@ -22,6 +23,14 @@ Route::get('/', function () {
 
 Route::resource('/ingredient', IngredientsController::class);
 Route::resource('/drinks', DrinksController::class);
-Route::get("/pizza", [PizzasController::class, "index"])->name("pizza_make");
-Route::get("/pizza/list", [PizzasController::class, "list"])->name("pizza_list");
-Route::post("/pizza", [PizzasController::class, "store"])->name("pizza_store");
+
+// for pizza order
+Route::get("/pizza", [PizzasController::class, "index"]);
+Route::get("/pizza/create", [PizzasController::class, "create"]);
+Route::post("/pizza", [PizzasController::class, "store"]);
+
+// for drinks order
+Route::get('/drink_order', [DrinkOrdersController::class, 'index']);
+Route::get('/drink_order/create', [DrinkOrdersController::class, 'create']);
+Route::post('/drink_order', [DrinkOrdersController::class, 'store']);
+

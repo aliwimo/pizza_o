@@ -10,20 +10,16 @@ use Illuminate\Http\Request;
 class PizzasController extends Controller
 {
     public function index() {
-        $ingredients = Ingredient::All();
-        return view('pizza.index')->with('ingredients', $ingredients);
+        $pizzas = Pizza::all();
+        return view('pizza.index')->with('pizzas', $pizzas);
     }
 
-    public function list() {
-        $pizzas = Pizza::all();
-        // dd($pizzas->pizzaIngredients);
-        // dd($pizzas);
-        return view('pizza.list')->with('pizzas', $pizzas);
+    public function create() {
+        $ingredients = Ingredient::All();
+        return view('pizza.create')->with('ingredients', $ingredients);
     }
 
     public function store(Request $request) {
-        // dd($request);
-        // dd($request->input('ingredients')[1]);
 
         // calculating price
         $price = 0;
@@ -48,6 +44,6 @@ class PizzasController extends Controller
             ]);
         }
 
-        return redirect('/pizza/list');
+        return redirect('/pizza');
     }
 }

@@ -15,10 +15,10 @@
                     <a class="nav-link" href="/drinks">Drinks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('pizza_make')}}">Create Pizza</a>
+                    <a class="nav-link" href="/pizza/create">Create Pizza</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('pizza_list')}}">List Pizza</a>
+                    <a class="nav-link" href="/pizza">List Pizza</a>
                 </li>
             </ul>
         </div>

@@ -3,37 +3,49 @@
 @section('content')
 
 <div class="card w-100 my-5">
-    <h5 class="card-header">Customize your pizza</h5>
+    <h5 class="card-header">Pizzas List</h5>
     <div class="card-body">
-        <form class="w-100" action="/pizza" method="POST">
-            @csrf
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="size">Size</label>
-                    <select id="size" class="form-control" name="size">
-                        <option value="1" selected>Small</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Large</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="amount">Amount</label>
-                    <input type="number" min="1" max="10" id="amount" class="form-control" name="amount" value="1">
-                </div>
-
-            </div>
-            <div class="form-row">
-                <div class="form-group col">
-                    <label for="ingredients">Select ingredients</label>
-                    <select multiple class="form-control" id="ingredients" name="ingredients[]">
-                        @foreach ($ingredients as $ingredient)
-                        <option value="{{ $ingredient->name }}">{{ $ingredient->name }}</option>
+        @isset($pizzas)
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Ingredients</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($pizzas as $pizza)
+                <tr>
+                    <th scope="row">{{ $pizza->id }}</th>
+                    <td>
+                        @if($pizza->size == 1)
+                        small
+                        @elseif ($pizza->size == 2)
+                        medium
+                        @else
+                        large
+                        @endif
+                    </td>
+                    <td>{{ $pizza->price }}</td>
+                    <td>{{ $pizza->amount }}</td>
+                    <td>
+                        @foreach ($pizza->pizzaIngredients as $ingredient)
+                        {{$ingredient['name']}}
                         @endforeach
-                    </select>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                    </td>
+                </tr>
+
+                @empty
+                <td colspan="4" class="text-center">There are no pizzas</td>
+                @endforelse
+            </tbody>
+            @endisset
+        </table>
+        <a href="/pizza/create" class="btn btn-primary">Insert New</a>
     </div>
+
 </div>
 @endsection
