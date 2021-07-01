@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DrinkOrdersController;
 use App\Http\Controllers\DrinksController;
 use App\Http\Controllers\IngredientsController;
@@ -37,4 +38,11 @@ Route::post("/pizza", [PizzasController::class, "store"])->name('pizza.store');
 Route::get('/drink_order', [DrinkOrdersController::class, 'index'])->name('drink_order.index');
 Route::get('/drink_order/create', [DrinkOrdersController::class, 'create'])->name('drink_order.create');
 Route::post('/drink_order', [DrinkOrdersController::class, 'store'])->name('drink_order.store');
+
+// cart routes
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{category}/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/remove/{category}/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/cart/flush', [CartController::class, 'flush'])->name('cart.flush');
+
 

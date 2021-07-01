@@ -5,7 +5,8 @@
 <div class="card w-100 my-5">
     <h5 class="card-header">Customize your pizza</h5>
     <div class="card-body">
-        <form class="w-100" action="{{ route('pizza.store') }}" method="POST">
+        {{-- <form class="w-100" action="{{ route('pizza.store') }}" method="POST"> --}}
+        <form class="w-100" action="{{ route('cart.add', ['category' => 'pizza', 'id' => '0']) }}" method="POST">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -17,10 +18,9 @@
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="amount">Amount</label>
-                    <input type="number" min="1" max="10" id="amount" class="form-control" name="amount" value="1">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" min="1" max="10" id="quantity" class="form-control" name="quantity" value="1">
                 </div>
-
             </div>
             <div class="form-row">
                 <div class="form-group col">

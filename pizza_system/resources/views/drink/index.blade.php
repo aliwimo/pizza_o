@@ -13,6 +13,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Add to Cart</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,12 @@
                             @method('DELETE')
                             <a href="{{ route('drink.edit', ['drink' => $drink->id]) }}" class="btn btn-sm btn-secondary">Edit</a>
                             <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{ route('cart.add', ['category' => 'drink', 'id' => $drink->id]) }}" method="POST">
+                            @csrf
+                            <input type="submit" class="btn btn-sm btn-primary" value="Add">
                         </form>
                     </td>
                 </tr>

@@ -20,6 +20,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pizza.index') }}">List Pizza</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cart.index') }}">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cart.flush') }}">Flush</a>
+                </li>
             </ul>
         </div>
     </div>
