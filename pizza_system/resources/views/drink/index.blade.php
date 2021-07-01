@@ -22,10 +22,10 @@
                     <td>{{ $drink->name }}</td>
                     <td>{{ $drink->price }}</td>
                     <td>
-                        <form action="/drinks/{{ $drink->id }}" method="POST">
+                        <form action="{{ route('drink.destroy', ['drink' => $drink->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="/drinks/{{ $drink->id }}/edit" class="btn btn-sm btn-secondary">Edit</a>
+                            <a href="{{ route('drink.edit', ['drink' => $drink->id]) }}" class="btn btn-sm btn-secondary">Edit</a>
                             <input type="submit" class="btn btn-sm btn-danger" value="Delete">
                         </form>
                     </td>
@@ -37,7 +37,7 @@
             </tbody>
             @endisset
         </table>
-        <a href="drinks/create" class="btn btn-primary">Insert New</a>
+        <a href="{{ route('drink.create') }}" class="btn btn-primary">Insert New</a>
     </div>
 
 </div>

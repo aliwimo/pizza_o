@@ -12,7 +12,6 @@
                     <th scope="col">ID</th>
                     <th scope="col">Size</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Amount</th>
                     <th scope="col">Ingredients</th>
                 </tr>
             </thead>
@@ -30,7 +29,6 @@
                         @endif
                     </td>
                     <td>{{ $pizza->price }}</td>
-                    <td>{{ $pizza->amount }}</td>
                     <td>
                         @foreach ($pizza->pizzaIngredients as $ingredient)
                         {{$ingredient['name']}}
@@ -44,7 +42,7 @@
             </tbody>
             @endisset
         </table>
-        <a href="/pizza/create" class="btn btn-primary">Insert New</a>
+        <a href="{{ route('pizza.create') }}" class="btn btn-primary">Insert New</a>
     </div>
 
 </div>

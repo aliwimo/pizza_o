@@ -5,7 +5,7 @@
 <div class="card w-100 my-5">
     <h5 class="card-header">Customize your pizza</h5>
     <div class="card-body">
-        <form class="w-100" action="/pizza" method="POST">
+        <form class="w-100" action="{{ route('pizza.store') }}" method="POST">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">

@@ -9,16 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/ingredient">Ingredients</a>
+                    <a class="nav-link" href="{{ route('ingredient.index') }}">Ingredients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/drinks">Drinks</a>
+                    <a class="nav-link" href="{{ route('drink.index') }}">Drinks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pizza/create">Create Pizza</a>
+                    <a class="nav-link" href="{{ route('pizza.create') }}">Create Pizza</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pizza">List Pizza</a>
+                    <a class="nav-link" href="{{ route('pizza.index') }}">List Pizza</a>
                 </li>
             </ul>
         </div>

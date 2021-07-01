@@ -21,16 +21,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// ingredients routes
 Route::resource('/ingredient', IngredientsController::class);
-Route::resource('/drinks', DrinksController::class);
 
-// for pizza order
-Route::get("/pizza", [PizzasController::class, "index"]);
-Route::get("/pizza/create", [PizzasController::class, "create"]);
-Route::post("/pizza", [PizzasController::class, "store"]);
+// drinks routes
+Route::resource('/drink', DrinksController::class);
 
-// for drinks order
-Route::get('/drink_order', [DrinkOrdersController::class, 'index']);
-Route::get('/drink_order/create', [DrinkOrdersController::class, 'create']);
-Route::post('/drink_order', [DrinkOrdersController::class, 'store']);
+// pizza routes
+Route::get("/pizza", [PizzasController::class, "index"])->name('pizza.index');
+Route::get("/pizza/create", [PizzasController::class, "create"])->name('pizza.create');
+Route::post("/pizza", [PizzasController::class, "store"])->name('pizza.store');
+
+// drink order routes
+Route::get('/drink_order', [DrinkOrdersController::class, 'index'])->name('drink_order.index');
+Route::get('/drink_order/create', [DrinkOrdersController::class, 'create'])->name('drink_order.create');
+Route::post('/drink_order', [DrinkOrdersController::class, 'store'])->name('drink_order.store');
 

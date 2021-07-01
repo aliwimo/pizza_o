@@ -5,7 +5,7 @@
 <div class="card w-100 my-5">
     <h5 class="card-header">Insert new drink</h5>
     <div class="card-body">
-        <form class="w-100" action="/drinks" method="POST">
+        <form class="w-100" action="{{ route('drink.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label>Drink Name</label>
