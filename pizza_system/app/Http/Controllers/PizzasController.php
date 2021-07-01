@@ -33,7 +33,6 @@ class PizzasController extends Controller
         $pizza_id = Pizza::insertGetId([
             'size' => $request->input('size'),
             'price' => $price,
-            'amount' => $request->input('amount'),
         ]);
 
 

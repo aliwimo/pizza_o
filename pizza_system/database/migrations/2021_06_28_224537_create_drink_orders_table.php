@@ -15,7 +15,11 @@ class CreateDrinkOrdersTable extends Migration
     {
         Schema::create('drink_orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('order_id');
+            $table->string('name');
+            $table->integer('quantity');
             $table->timestamps();
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
         });
     }
 
