@@ -25,8 +25,8 @@
                         <form action="{{ route('ingredient.destroy', ['ingredient' => $ingredient->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="{{ route('ingredient.edit', ['ingredient' => $ingredient->id]) }}" class="btn btn-sm btn-secondary">Edit</a>
-                            <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                            <a href="{{ route('ingredient.edit', ['ingredient' => $ingredient->id]) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
                         </form>
                     </td>
                 </tr>

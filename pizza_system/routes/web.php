@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DrinkOrdersController;
 use App\Http\Controllers\DrinksController;
 use App\Http\Controllers\IngredientsController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\PizzasController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,7 @@ Route::post('/drink_order', [DrinkOrdersController::class, 'store'])->name('drin
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{category}/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/remove/{category}/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::get('/cart/flush', [CartController::class, 'flush'])->name('cart.flush');
+Route::get('/cart/flush', [CartController::class, 'empty_cart'])->name('cart.empty');
 
-
+// order routes
+Route::post('/order', [OrdersController::class, 'store'])->name('order.store');

@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" placeholder="Price" name="price" value="{{ $drink->price }}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="/drink" class="btn btn-secondary">Discard</a>
+            <a href="/drink" class="btn btn-outline-secondary">Discard</a>
         </form>
     </div>
 </div>

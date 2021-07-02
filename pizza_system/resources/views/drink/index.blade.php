@@ -26,14 +26,14 @@
                         <form action="{{ route('drink.destroy', ['drink' => $drink->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a href="{{ route('drink.edit', ['drink' => $drink->id]) }}" class="btn btn-sm btn-secondary">Edit</a>
-                            <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                            <a href="{{ route('drink.edit', ['drink' => $drink->id]) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('cart.add', ['category' => 'drink', 'id' => $drink->id]) }}" method="POST">
+                        <form action="{{ route('cart.add', ['category' => 'drinks', 'id' => $drink->id]) }}" method="POST">
                             @csrf
-                            <input type="submit" class="btn btn-sm btn-primary" value="Add">
+                            <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add">
                         </form>
                     </td>
                 </tr>

@@ -17,7 +17,7 @@
                 <input type="text" class="form-control" placeholder="Price" name="price" value="{{ $ingredient->price }}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{{ route('ingredient.index') }}" class="btn btn-secondary">Discard</a>
+            <a href="{{ route('ingredient.index') }}" class="btn btn-outline-secondary">Discard</a>
         </form>
     </div>
 </div>

@@ -6,7 +6,7 @@
     <h5 class="card-header">Customize your pizza</h5>
     <div class="card-body">
         {{-- <form class="w-100" action="{{ route('pizza.store') }}" method="POST"> --}}
-        <form class="w-100" action="{{ route('cart.add', ['category' => 'pizza', 'id' => '0']) }}" method="POST">
+        <form class="w-100" action="{{ route('cart.add', ['category' => 'pizzas', 'id' => '0']) }}" method="POST">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">

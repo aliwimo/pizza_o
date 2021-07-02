@@ -10,38 +10,30 @@ class CartController extends Controller
 {
     public function index() {
 
+        $drinks_quantity = null;
+        $drinks = null;
+        $pizzas = null;
+
         // get drinks
         if (Session::has('drinks')) {
             $drinks_quantity = Session::get('drinks');
             $drinks_ids = array_keys($drinks_quantity);
             $drinks = Drink::whereIn('id', $drinks_ids)->get();
-        } else {
-            $drinks_quantity = null;
-            $drinks = null;
         }
+
         // git pizzas
         if (Session::has('pizzas')) {
             $pizzas = Session::get('pizzas');
-        } else {
-            $pizzas = null;
         }
+
         return view('cart.index')->with('drinks', $drinks)->with('quantity', $drinks_quantity)->with('pizzas', $pizzas);
     }
 
     public function add(Request $request, $category, $id) {
-        if ($category === 'drink') {
+        if ($category === 'drinks') {
             $this->add_drink($id);
-        } else if($category === 'pizza') {
+        } else if($category === 'pizzas') {
             $this->add_pizza($request);
-        }
-        return redirect(route('cart.index'));
-    }
-
-    public function remove(Request $request, $category, $id) {
-        if ($category === 'drink') {
-            $this->remove_drink($id);
-        } else if($category === 'pizza') {
-            $this->remove_pizza($id);
         }
         return redirect(route('cart.index'));
     }
@@ -63,6 +55,7 @@ class CartController extends Controller
     }
 
     public function add_pizza(Request $request) {
+        // generate a temperoray id for the pizza to use it when remove from cart
         $id = substr(md5(rand(10000, 99999)), 0, 5);
         $pizza = [
             'id' => $id,
@@ -80,26 +73,24 @@ class CartController extends Controller
             Session::put('pizzas', [$id => $pizza]);
             Session::save();
         }
-
     }
 
-    public function remove_drink($id) {
-        $drinks_array = Session::get('drinks');
-        unset($drinks_array["$id"]);
-        Session::put('drinks', $drinks_array);
-        Session::save();
+    public function remove($category, $id) {
+        $items = Session::get($category);
+        unset($items["$id"]);
+        if (count($items) == 0) {
+            Session::forget($category);
+        } else {
+            Session::put($category, $items);
+            Session::save();
+        }
+        return redirect(route('cart.index'));
     }
 
-    public function remove_pizza($id) {
-        $pizzas_array = Session::get('pizzas');
-        unset($pizzas_array["$id"]);
-        Session::put('pizzas', $pizzas_array);
-        Session::save();
-    }
-
-    public function flush() {
-        Session::flush();
-        return redirect(route('drink.index'));
+    public function empty_cart() {
+        Session::forget('drinks');
+        Session::forget('pizzas');
+        return redirect(route('cart.index'));
     }
 }
 
