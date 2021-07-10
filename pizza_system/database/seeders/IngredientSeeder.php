@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -27,6 +28,8 @@ class IngredientSeeder extends Seeder
             DB::table('ingredients')->insert([
                 'name' => $ingredients[$i]['name'],
                 'price' => $ingredients[$i]['price'],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
         }
     }
