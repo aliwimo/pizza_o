@@ -11,8 +11,8 @@
             <thead>
                 <tr>
                     <th scope="col">Size</th>
-                    <th scope="col">Ingredients</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Ingredients</th>
                     <th scope="col">Remove from Cart</th>
                 </tr>
             </thead>

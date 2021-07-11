@@ -11,15 +11,23 @@ class OrdersController extends Controller
     public function store(Request $request) {
         // get pizzas
         if (Session::has('pizzas')) {
-            $pizzas = Session::get('pizzas');
-            // dd($pizzas);
+            $this->store_pizza();
         }
 
         // get drinks
         if (Session::has('drinks')) {
-            $drinks = Session::get('drinks');
-            dd($drinks);
+            $this->store_drink();
         }
+    }
+
+    public function store_pizza() {
+        $pizzas = Session::get('pizzas');
+        dd($pizzas);
+    }
+
+    public function store_drink() {
+        $drinks = Session::get('drinks');
+        dd($drinks);
     }
 
 }
